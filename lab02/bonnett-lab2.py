@@ -55,7 +55,7 @@ while True:
           connectionSocket.close()
           continue
 
-        if len(requestline2) != 2:
+        if len(requestline2) != 2: #checking that the second line is composed of 2 words
           #Send response message for bad request:
           connectionSocket.send('Error 400 Bad Request: need exactly 2 fields\n')
 
@@ -64,7 +64,7 @@ while True:
           continue
 
 
-        if requestline[0] != 'GET':
+        if requestline[0] != 'GET':  #checking that the first word in the first line is "GET"
           #Send response message for bad request:
           connectionSocket.send('Error 400 Bad Request: Missing GET\n')
 
@@ -73,7 +73,7 @@ while True:
           continue
 
 
-        if requestline2[0] != 'Host:':
+        if requestline2[0] != 'Host:':  #checking that the first word in the second line is "Host:"
           #Send response message for bad request:
           connectionSocket.send('Error 400 Bad Request: missing HOST header\n')
 
@@ -82,7 +82,7 @@ while True:
           continue
 
         #The test that I added
-        if requestline2[1] != 'localhost':
+        if requestline2[1] != 'localhost':  #checking if the second word of the second line is "localhost"
           #Send response message for bad request
           connectionSocket.send('Error 400 Bad Request: Wrong Host name\n')
 
