@@ -54,12 +54,12 @@ try: # We handle a server socket timeout at the "except:" line
                 break
 
             # print the total number of bytes received
-            print "DEBUG: Successfully received " + str(filesize) + " bytes"
+      print "DEBUG: Successfully received " + str(length) + " bytes"
 
 
       # No more data--close file, send final OK message, and close connection
       f.close()
-      connection.send("OK Received " + str(filesize) + " bytes")
+      connection.send("OK Received " + str(length) + " bytes")
       connection.close()
 
     except socket.timeout: # This shouldn't happen!
